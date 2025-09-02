@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+
+    --primary: 210 100% 15%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 210 100% 15%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 210 100% 45%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 100% 45%;
+
+    --radius: 0.75rem;
+
+    /* Maritime Design System */
+    --navy-primary: 210 100% 15%;
+    --navy-light: 210 100% 25%;
+    --navy-dark: 210 100% 10%;
+    --ocean-blue: 210 100% 45%;
+    --ocean-light: 210 80% 85%;
+    --maritime-gradient: linear-gradient(135deg, hsl(210 100% 15%), hsl(210 100% 25%));
+    --ocean-gradient: linear-gradient(180deg, hsl(210 80% 85%), hsl(210 100% 45%));
+    --hero-overlay: linear-gradient(135deg, hsl(210 100% 15% / 0.8), hsl(210 100% 25% / 0.6));
+
+    /* Shadows */
+    --shadow-maritime: 0 10px 40px -15px hsl(210 100% 15% / 0.3);
+    --shadow-ocean: 0 8px 30px -10px hsl(210 100% 45% / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 100% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 210 100% 8%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 210 100% 8%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 210 100% 45%;
+    --primary-foreground: 210 100% 8%;
+
+    --secondary: 210 50% 15%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 210 50% 15%;
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 210 100% 45%;
+    --accent-foreground: 210 100% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 50% 15%;
+    --input: 210 50% 15%;
+    --ring: 210 100% 45%;
+
+    /* Dark Maritime Design System */
+    --navy-primary: 210 100% 45%;
+    --navy-light: 210 100% 55%;
+    --navy-dark: 210 100% 35%;
+    --ocean-blue: 210 100% 45%;
+    --ocean-light: 210 50% 20%;
+    --maritime-gradient: linear-gradient(135deg, hsl(210 100% 8%), hsl(210 50% 15%));
+    --ocean-gradient: linear-gradient(180deg, hsl(210 50% 15%), hsl(210 100% 45%));
+    --hero-overlay: linear-gradient(135deg, hsl(210 100% 8% / 0.9), hsl(210 50% 15% / 0.7));
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat;
+    background-image: var(--hero-overlay), url('/src/assets/hero-ship.jpg');
+  }
+
+  .maritime-gradient {
+    background: var(--maritime-gradient);
+  }
+
+  .ocean-gradient {
+    background: var(--ocean-gradient);
+  }
+
+  .shadow-maritime {
+    box-shadow: var(--shadow-maritime);
+  }
+
+  .shadow-ocean {
+    box-shadow: var(--shadow-ocean);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .btn-cta {
+    @apply bg-accent text-accent-foreground hover:bg-ocean-blue px-8 py-4 rounded-lg font-semibold transition-smooth shadow-ocean hover:shadow-maritime hover:scale-105;
+  }
+
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
